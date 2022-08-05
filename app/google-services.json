@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420669444061",
+    "project_id": "usafiapp-18812",
+    "storage_bucket": "usafiapp-18812.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420669444061:android:5707af4c54bd955faef034",
+        "android_client_info": {
+          "package_name": "com.example.usafiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420669444061-c7phs93pbgvv8eqm5aufje9ir35mc7un.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbMPNrrVvcBM713rSZs-aaHf65h8wPG7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420669444061-c7phs93pbgvv8eqm5aufje9ir35mc7un.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
