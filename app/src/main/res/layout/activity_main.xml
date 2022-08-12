@@ -52,6 +52,6 @@
         android:layout_gravity="start"
         app:itemIconTint="@drawable/navigation_selector"
         app:itemTextColor="@drawable/navigation_view_item_selected"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

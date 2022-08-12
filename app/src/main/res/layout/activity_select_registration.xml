@@ -36,7 +36,7 @@
                 android:id="@+id/alredyHaveAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello, Welcome To Blood Donation App"
+                android:text="Hello, Welcome To Usafi App"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:gravity="center"
