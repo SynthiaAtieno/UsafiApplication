@@ -6,12 +6,12 @@
 
     <LinearLayout
         android:id="@+id/mainLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="8dp"
-        android:weightSum="3"
+        android:weightSum="4"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
@@ -85,23 +85,43 @@
                 android:textAllCaps="false"
                 android:textColor="@color/black" />
         </LinearLayout>
-        <androidx.appcompat.widget.AppCompatButton
+
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/emailNow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:src="@drawable/email"
             android:layout_weight="1"
             android:visibility="gone"
-            android:background="@drawable/button_background"
+            android:background="@color/white"
             android:textColor="#fff"
             android:text="Email"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/callNow"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:background="@color/white"
+            android:gravity="center"
+            android:src="@drawable/call"
+            android:text="Call"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
+
 
 
     <View

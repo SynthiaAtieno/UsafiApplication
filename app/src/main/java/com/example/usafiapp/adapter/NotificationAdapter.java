@@ -64,6 +64,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //senderid = snapshot.child("senderId").getValue().toString();
+                Notification notification = snapshot.getValue(Notification.class);
                 Users users = snapshot.getValue(Users.class);
                 nameTextView.setText(users.getName());
                 Glide.with(context).load(users.getProfilepictureuri()).into(circleImageView);

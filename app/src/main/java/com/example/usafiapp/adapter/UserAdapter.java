@@ -1,17 +1,25 @@
 package com.example.usafiapp.adapter;
 
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -61,6 +69,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         if (users.getType().equals("Worker"))
         {
             holder.emailBtn.setVisibility(View.VISIBLE);
+            holder.makecall.setVisibility(View.VISIBLE);
         }
         holder.useremails.setText(users.getEmail());
         holder.usernames.setText(users.getName());
@@ -75,6 +84,29 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         }
         final String nameOfTheReciever = users.getName();
         final String idOfTheReciever = users.getId();
+
+        holder.makecall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final int REQUEST_CALL = 100;
+                String number = users.getPhoneNo().trim();
+                if (number.length() > 0) {
+                    if (ContextCompat.checkSelfPermission(holder.usernames.getContext(), Manifest.permission.CALL_PHONE) !=
+                            PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions((Activity) holder.usernames.getContext(), new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+                    } else {
+                        String dial = "tel:" + number;
+
+                        Intent i = new Intent(Intent.ACTION_CALL);
+                        i.setData(Uri.parse(dial));
+                        view.getContext().startActivity(i);
+                    }
+                } else {
+                    Toast.makeText(holder.usernames.getContext(), "No number found", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
         //sending the email
         holder.emailBtn.setOnClickListener(new View.OnClickListener() {
@@ -149,7 +181,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public  class  ViewHolder extends RecyclerView.ViewHolder {
         public CircleImageView profileimages;
         public TextView usernames, userphones, userlocations, usertypes, useremails, userinterest;
-        AppCompatButton emailBtn;
+        ImageButton emailBtn, makecall;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -161,6 +193,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             usertypes = itemView.findViewById(R.id.usertype);
             userinterest = itemView.findViewById(R.id.userinterest);
             emailBtn = itemView.findViewById(R.id.emailNow);
+            makecall = itemView.findViewById(R.id.callNow);
         }
     }
     private void addNotifications(String receiverId, String senderId)

@@ -146,6 +146,14 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                                         Toast.makeText(EmlpoyerRegistration.this, "Error " + error, Toast.LENGTH_SHORT).show();
                                     } else {
                                         String currentUseerId = mAuth.getCurrentUser().getUid();
+                                        mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(EmlpoyerRegistration.this, "Verification Email has been sent", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(EmlpoyerRegistration.this, Login.class));
+                                                finish();
+                                            }
+                                        });
                                         userDatabaseRef = FirebaseDatabase.getInstance().getReference()
                                                 .child("users").child(currentUseerId);
                                         HashMap userInfo = new HashMap();
@@ -220,8 +228,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                                                     }
                                                 }
                                             });
-                                            startActivity(new Intent(EmlpoyerRegistration.this, MainActivity.class));
-                                            finish();
+
                                             progressDialog.dismiss();
 
                                         }
@@ -237,4 +244,24 @@ public class EmlpoyerRegistration extends AppCompatActivity {
 
 
     }
+    /*private boolean validateEmail() {
+        String email_address = email.getEditText().getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (email_address.isEmpty()) {
+            email.setError("Please fill your email address");
+            email.requestFocus();
+            return false;
+        } else if (!email_address.matches(emailPattern)) {
+            email.setError("Please enter a valid email address");
+            email.requestFocus();
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+
+        }
+
+    }*/
 }

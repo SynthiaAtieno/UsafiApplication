@@ -26,14 +26,14 @@ public class SplashActivity extends AppCompatActivity {
 
         logo = findViewById(R.id.logo);
         title = findViewById(R.id.title);
-        slogan = findViewById(R.id.slogan);
+       // slogan = findViewById(R.id.slogan);
 
         top_anim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottom_anim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         logo.setAnimation(top_anim);
         title.setAnimation(bottom_anim);
-        slogan.setAnimation(bottom_anim);
+        //slogan.setAnimation(bottom_anim);
 
         int Splash_screen = 4800;
         new Handler().postDelayed(new Runnable() {

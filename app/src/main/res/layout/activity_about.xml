@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#Be5025"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Just A call, Find Your Preferred Worker Near You"
+        android:textColor="@color/black"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This Application was created by :"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name : Synthia Ondeng"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:textStyle="italic"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email Address : ondengsynthia2@email.com"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:textStyle="italic"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NOTE"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:gravity="start"
+        android:textStyle="bold|italic"
+        android:layout_marginStart="8dp"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finding this app interesting, give it a good rating and share with your friends"
+        android:textColor="@color/black"
+        android:layout_marginTop="18dp"
+        android:gravity="start"
+        android:textStyle="italic"
+        android:layout_marginStart="8dp"
+        android:textSize="18sp"/>
+</LinearLayout>

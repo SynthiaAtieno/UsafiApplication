@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_category_selected.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/layout/activity_category_selected.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_emlpoyer_registration.xml" value="0.2630208333333333" />
+        <entry key="app/src/main/res/layout/activity_help.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_select_registration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sent_email.xml" value="0.1" />
@@ -16,7 +18,7 @@
         <entry key="app/src/main/res/layout/header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/notification_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/output.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/user_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/user_layout.xml" value="0.25" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.1" />
       </map>
     </option>

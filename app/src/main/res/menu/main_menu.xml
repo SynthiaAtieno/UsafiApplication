@@ -14,7 +14,8 @@
     <item
         android:id="@+id/compatible"
         android:icon="@drawable/check"
-        android:title="CWorkers Around me"/>
+        android:visible="false"
+        android:title="Workers Around me"/>
     <!--<item android:title="Blood Groups">
         <menu>
             <group android:checkableBehavior="single">
@@ -76,6 +77,10 @@
     <item android:title="Communicate">
         <menu>
             <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/help"
+                    android:icon="@drawable/about"
+                    android:title="Help"/>
                 <item
                     android:id="@+id/about"
                     android:icon="@drawable/about"

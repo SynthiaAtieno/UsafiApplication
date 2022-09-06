@@ -289,8 +289,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
             case R.id.about:
-                startActivity(new Intent(MainActivity.this, Notifications.class));
+                startActivity(new Intent(MainActivity.this, About.class));
                 finish();
+                break;
+
+
+            case R.id.help:
+                startActivity(new Intent(MainActivity.this, Help.class));
+                finish();
+                break;
+            case R.id.share:
+                Intent myIntent = new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String shareBody = "Your body here";
+                String sharesub = "Your Subject here";
+                myIntent.putExtra(Intent.EXTRA_SUBJECT, sharesub);
+                myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(myIntent, "Share Via"));
                 break;
 
             case R.id.logout:
