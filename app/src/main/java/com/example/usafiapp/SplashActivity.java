@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashActivity extends AppCompatActivity {
     ImageView logo;
     TextView title, slogan;
@@ -35,13 +38,27 @@ public class SplashActivity extends AppCompatActivity {
         title.setAnimation(bottom_anim);
         //slogan.setAnimation(bottom_anim);
 
+        FirebaseAuth auth;
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+
+
         int Splash_screen = 4800;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, Login.class);
+                /*Intent intent = new Intent(SplashActivity.this, Login.class);
                 startActivity(intent);
-                finish();
+                finish();*/
+
+                if (currentUser != null){
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }
+                else {
+                    startActivity(new Intent(SplashActivity.this, Login.class));
+                    finish();
+                }
             }
         }, Splash_screen);
 

@@ -134,7 +134,6 @@ public class WorkerRgistration extends AppCompatActivity {
                 } */else {
                     progressDialog.setMessage("Signing Up");
                     progressDialog.setCanceledOnTouchOutside(false);
-                    progressDialog.show();
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                             new OnCompleteListener<AuthResult>() {
@@ -145,7 +144,16 @@ public class WorkerRgistration extends AppCompatActivity {
                                         String error = task.getException().toString();
                                         Toast.makeText(WorkerRgistration.this, "Error " + error, Toast.LENGTH_SHORT).show();
                                     } else {
+                                        progressDialog.show();
                                         String currentUseerId = mAuth.getCurrentUser().getUid();
+                                        mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(WorkerRgistration.this, "Verification Email has been sent", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(WorkerRgistration.this, Login.class));
+                                                finish();
+                                            }
+                                        });
                                         userDatabaseRef = FirebaseDatabase.getInstance().getReference()
                                                 .child("users").child(currentUseerId);
                                         HashMap userInfo = new HashMap();

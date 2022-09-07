@@ -106,6 +106,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                 if (TextUtils.isEmpty(email)) {
                     registeremail.setError("Email is Required");
                     registeremail.requestFocus();
+                    validateEmail();
                     return;
                 }
                 if (TextUtils.isEmpty(phone)) {
@@ -116,6 +117,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                 if (TextUtils.isEmpty(password)) {
                     registerpassword.setError("Password is Required");
                     registerpassword.requestFocus();
+                    validatePassword();
                     return;
                 }
                 if (TextUtils.isEmpty(idNo)) {
@@ -134,7 +136,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                 }*/ else {
                     progressDialog.setMessage("Signing Up");
                     progressDialog.setCanceledOnTouchOutside(false);
-                    progressDialog.show();
+
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                             new OnCompleteListener<AuthResult>() {
@@ -145,6 +147,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                                         String error = task.getException().toString();
                                         Toast.makeText(EmlpoyerRegistration.this, "Error " + error, Toast.LENGTH_SHORT).show();
                                     } else {
+                                        progressDialog.show();
                                         String currentUseerId = mAuth.getCurrentUser().getUid();
                                         mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -176,7 +179,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                                                             Toast.makeText(EmlpoyerRegistration.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                                                         }
                                                         finish();
-                                                        //progressDialog.dismiss();
+                                                        progressDialog.dismiss();
                                                     }
                                                 });
                                         if (resultUri != null) {
@@ -229,7 +232,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
                                                 }
                                             });
 
-                                            progressDialog.dismiss();
+                                            //progressDialog.dismiss();
 
                                         }
 
@@ -241,6 +244,7 @@ public class EmlpoyerRegistration extends AppCompatActivity {
 
             }
         });
+
 
 
     }
@@ -264,4 +268,45 @@ public class EmlpoyerRegistration extends AppCompatActivity {
         }
 
     }*/
+
+    private boolean validatePassword() {
+        String password_filed = registerpassword.getText().toString();
+        //String confirm_password = con_pass.getEditText().getText().toString();
+        String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+
+        if (password_filed.isEmpty()) {
+            registerpassword.setError("Please fill your password");
+            registerpassword.requestFocus();
+            return false;
+        } else if (!password_filed.matches(PASSWORD_PATTERN)) {
+            registerpassword.setError("Password must be at least 4 characters long, one uppercase, one letter and a symbol ");
+            registerpassword.requestFocus();
+            return false;
+        } else {
+            registerpassword.setError(null);
+            return true;
+        }
+
+
+    }
+    private boolean validateEmail() {
+        String email_address = registeremail.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        if (email_address.isEmpty()) {
+            registeremail.setError("Please fill your email address");
+            registeremail.requestFocus();
+            return false;
+        } else if (!email_address.matches(emailPattern)) {
+            registeremail.setError("Please enter a valid email address");
+            registeremail.requestFocus();
+            return false;
+        } else {
+            registeremail.setError(null);
+            //registeremail.setErrorEnabled(false);
+            return true;
+
+        }
+
+    }
 }

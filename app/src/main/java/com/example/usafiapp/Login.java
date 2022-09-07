@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        authStateListener = new FirebaseAuth.AuthStateListener() {
+        /*authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = mAuth.getCurrentUser();
@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
                     finish();
                 }
             }
-        };
+        };*/
         setContentView(R.layout.activity_login);
         registertv = findViewById(R.id.back_btn);
         login = findViewById(R.id.Login_btn);
@@ -152,7 +152,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(authStateListener);
@@ -162,5 +162,5 @@ public class Login extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(authStateListener);
-    }
+    }*/
 }
