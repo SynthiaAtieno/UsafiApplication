@@ -1,4 +1,4 @@
-# MyApplication
+# Usafi Application
 
 ## Demo
 <p float="left">
